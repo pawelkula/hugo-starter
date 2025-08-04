@@ -1,0 +1,55 @@
+{{ $firstContentBlock := index .Params.content_blocks 0 }}
+{{ $overrideLogo := $firstContentBlock.header_style_overrides.alternate_logo }}
+{{ $overrideLogoPath := $overrideLogo.image_path }}
+{{ $original := .nav.header }}
+<a class="header__logo-link" href="{{ $original.logo_url }}">
+  {{ with $overrideLogoPath }}
+    {{ if hasSuffix . ".svg" }}
+      <img 
+        src="{{ . }}" 
+        alt="{{ $overrideLogo.logo_alt_text }}"
+        class="header__logo-image"
+        loading="eager"
+      >
+    {{ else }}
+      {{ $image := resources.Get $overrideLogoPath }}
+      {{ with $image }}
+        {{ $image = $image.Resize "440x png" }}
+      {{ end }}
+      {{ with $image }}
+        <img 
+          src="{{ .RelPermalink }}" 
+          width="{{ .Width }}" 
+          height="{{ .Height }}" 
+          class="header__logo-image"
+          alt="{{ $overrideLogo.logo_alt_text }}"
+          loading="eager"
+        >
+      {{ end }}
+    {{ end }}
+  {{ else }}
+    {{ if hasSuffix .Params.thumb_image_path ".svg" }}
+      <img 
+        src="{{ $original.logo }}" 
+        alt="{{ $original.logo_alt_text }}"
+        class="header__logo-image"
+        loading="eager"
+      >
+    {{ else }}
+      {{ $image := resources.Get $original.logo }}
+      {{ with $image }}
+        {{ $image = $image.Resize "440x png" }}
+      {{ end }}
+      {{ with $image }}
+        <img 
+          src="{{ .RelPermalink }}" 
+          width="{{ .Width }}" 
+          height="{{ .Height }}" 
+          class="header__logo-image"
+          alt="{{ $original.logo_alt_text }}"
+          loading="eager"
+        >
+      {{ end }}
+    {{ end }}
+  {{ end }}
+</a>
