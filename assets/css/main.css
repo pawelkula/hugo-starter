@@ -1,5 +1,6 @@
 @import "./variables.css";
 @import "tailwindcss";
+@import "./fonts.css";
 @import "./_404.css";
 @import "./_markdown.css";
 @import "./_header.css";
@@ -10,27 +11,175 @@
 @source "hugo_stats.json";
 
 :root {
-  /* Max width and inline padding of the page */
-  --pageContainer: 1280px;
-  --pagePadding: 32px;
-  /* The padding used between page sections (components) */
-  --sectionPadding: 6rem;
-  --sectionPaddingMobile: 3rem;
-  /* Set here rather than hardcoded to work out the styles for hero components overlapping header */
-  /* When increasing header padding, make sure to increase headerHeight to make room */
-  /* Logo size is calculated by subtracting headerPadding * 2 from the headerHeight */
-  --headerHeight: 4rem;
-  --headerPadding: 1rem;
+  font-family: "Livvic", system-ui, sans-serif;
 }
 
 html {
-  font-family: Poppins, sans-serif;
+  scroll-behavior: smooth;
+  font-family: "Livvic", sans-serif;
+}
+
+body {
+  margin: 0;
+  cursor: default;
+  color: var(--light);
+  background-color: var(--dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+ol {
+  padding-left: 1em;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0.9em;
+  margin-left: 0;
+}
+
+ul li:before {
+  content: "–";
+  position: absolute;
+  margin-left: -0.8em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0 0 0.4em 0;
+}
+
+p {
+  word-break: break-word;
+}
+
+q {
+  quotes: "\201E""\201C";
+}
+
+::selection {
+  background: var(--accent_blue);
+  color: var(--dark);
+}
+
+img,
+video {
+  vertical-align: middle;
+  object-fit: cover;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+figure {
+  margin: 0;
+}
+
+/* Default Links */
+a {
+  text-decoration: underline 0.05em;
+  text-underline-offset: 0.2em;
+  color: inherit;
+  outline: 0;
+  transition: text-decoration-color 0.2s ease;
+}
+
+a:hover {
+  text-decoration-color: var(--dark_yellow);
 }
 
 main {
   min-height: 100vh;
 }
 
-img {
-  object-fit: cover;
+/* Form Elements */
+input,
+select,
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: 0;
+  font-family: "Livvic", sans-serif;
+}
+
+input:focus,
+.button:focus {
+  outline: 0;
+}
+
+/* Buttons */
+.button {
+  cursor: pointer;
+  user-select: none;
+  border-radius: 0.38em;
+  padding: 0.7em 1.2em;
+  min-width: 6em;
+  border: 1px solid;
+  font-family: "Livvic", sans-serif;
+  font-size: var(--FSS);
+  line-height: 1.4em;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.button:hover {
+  background-color: var(--dark_yellow);
+  color: var(--dark);
+  border-color: var(--dark_yellow);
+}
+
+.bt_pr_dark {
+  background-color: var(--dark);
+  color: var(--light);
+  border-color: transparent;
+}
+
+.bt_pr_light {
+  background-color: var(--light);
+  color: var(--dark);
+  border-color: transparent;
+}
+
+.bt_sec_dark {
+  background-color: transparent;
+  color: var(--dark);
+  border-color: var(--dark);
+}
+
+.bt_sec_light {
+  background-color: transparent;
+  color: var(--light);
+  border-color: var(--light);
+}
+
+@media (max-width: 768px) {
+  .button {
+    padding: 0.6em 1em;
+    min-width: 4em;
+  }
+}
+
+/* Tags */
+.tag {
+  display: flex;
+  padding: 0.375rem 0.375rem 0.375rem 0.875rem;
+  align-items: center;
+  gap: 0.3125rem;
+  background-color: var(--light_yellow);
+  color: var(--dark);
+  font-size: var(--FSS);
+  font-weight: 400;
+  line-height: 1.4;
+  text-decoration: none;
+  border-radius: var(--border-radius);
 }

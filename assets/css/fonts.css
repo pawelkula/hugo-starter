@@ -1,0 +1,105 @@
+/* Livvic Font Family Variables & Utilities */
+/* Font loaded via HTML <link> in head.html for optimal performance */
+
+/* Font Family Variables */
+:root {
+  --font-primary: "Livvic", system-ui, -apple-system, sans-serif;
+  --font-fallback: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Font sizes */
+:root {
+  --FSXS: 14px;
+  --FSS: 16px;
+  --FSD: 18px;
+  --FSM: 25px;
+  --FSL: 50px;
+  --FSXL: 77px;
+}
+
+@media (max-width: 1330px) {
+  :root {
+    --FSXS: 1.05vw;
+    --FSS: 1.2vw;
+    --FSD: 1.35vw;
+    --FSM: 1.88vw;
+    --FSL: 3.76vw;
+    --FSXL: 5.79vw;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --FSXS: 3.33vw;
+    --FSS: 4.1vw;
+    --FSD: 4.1vw;
+    --FSM: 5.13vw;
+    --FSL: 7.69vw;
+    --FSXL: 7.69vw;
+  }
+}
+
+/* Basic Font Definitions */
+body {
+  font-family: "Livvic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+i,
+em {
+  font-style: normal;
+}
+
+strong {
+  font-family: "Livvic", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Font Classes */
+.FSXS {
+  font-size: var(--FSXS);
+  line-height: 1.4em;
+}
+
+.FSS {
+  font-size: var(--FSS);
+  line-height: 1.4em;
+}
+
+/* Default Font Size is Reference for rem Values */
+.FSD {
+  font-size: var(--FSD);
+  line-height: 1.45em;
+}
+
+.FSM {
+  font-size: var(--FSM);
+  line-height: 1.2em;
+}
+
+.FSL {
+  font-size: var(--FSL);
+  line-height: 1.1em;
+}
+
+.FSXL {
+  font-size: var(--FSXL);
+  line-height: 1.1em;
+}
+
+.bold {
+  font-family: "Livvic", sans-serif;
+  font-weight: 700;
+}
+
+.caps {
+  text-transform: uppercase;
+}
+
+.bold-it {
+  font-family: "Livvic", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
