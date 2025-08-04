@@ -1,0 +1,95 @@
+<section class="txt-module">
+  <div
+    class="{{ if .layout.disable_bottom_padding }}
+      txt-module-container no-bottom-padding
+    {{ else }}
+      txt-module-container
+    {{ end }}"
+  >
+    {{/* Optional Headline */}}
+    {{ if and .headline .headline.enabled }}
+      <div class="txt-module-headline">
+        {{ if eq .headline.size "XL" }}
+          <h1 class="headline-xl" style="text-align: {{ .headline.alignment | default "left" }};">
+            {{ .headline.text }}
+          </h1>
+        {{ else }}
+          <h2 class="headline-l" style="text-align: {{ .headline.alignment | default "left" }};">
+            {{ .headline.text }}
+          </h2>
+        {{ end }}
+      </div>
+    {{ end }}
+
+    {{/* Optional Sub Headline */}}
+    {{ if and .sub_headline .sub_headline.enabled }}
+      <div class="txt-module-sub-headline">
+        <h3 style="text-align: {{ .sub_headline.alignment | default "left" }};">
+          {{ .sub_headline.text }}
+        </h3>
+      </div>
+    {{ end }}
+
+    {{/* Optional Content */}}
+    {{ if and .content .content.enabled }}
+      <div
+        class="txt-module-content"
+        style="grid-template-columns: repeat({{ .content.columns | default 1 }}, 1fr);"
+      >
+        {{ .content.text | markdownify }}
+      </div>
+    {{ end }}
+
+    {{/* CTAs or Tags */}}
+    {{ if eq .action_type "ctas" }}
+      {{ if .ctas }}
+        <div class="txt-module-actions">
+          {{ range .ctas }}
+            {{ if .text }}
+              {{ if eq .type "primary" }}
+                <a
+                  href="{{ .url | default "#" }}"
+                  target="{{ .target | default "_self" }}"
+                  class="button bt_pr_dark"
+                  >{{ .text }}</a
+                >
+              {{ else if eq .type "secondary" }}
+                <a
+                  href="{{ .url | default "#" }}"
+                  target="{{ .target | default "_self" }}"
+                  class="button bt_sec_light"
+                  >{{ .text }}</a
+                >
+              {{ else if eq .type "link" }}
+                <a
+                  href="{{ .url | default "#" }}"
+                  target="{{ .target | default "_self" }}"
+                  class="text-link"
+                  >{{ .text }}</a
+                >
+              {{ else if eq .type "anchor" }}
+                <a href="{{ .url | default "#" }}" class="text-link anchor-link">{{ .text }}</a>
+              {{ else if eq .type "overlay" }}
+                <button type="button" class="button bt_pr_light" data-overlay="{{ .overlay_id }}">
+                  {{ .text }}
+                </button>
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        </div>
+      {{ end }}
+    {{ else if eq .action_type "tags" }}
+      {{ if .tags }}
+        <div class="txt-module-tags">
+          {{ range .tags }}
+            {{ if .text }}
+              <span class="tag">
+                {{ .text }}
+              </span>
+            {{ end }}
+          {{ end }}
+        </div>
+      {{ end }}
+    {{ end }}
+  </div>
+</section>

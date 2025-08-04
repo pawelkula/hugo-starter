@@ -1,0 +1,146 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures:
+    - content_blocks
+  label: Txt Module
+  description: Flexible text block with optional headline, content, CTAs or tags
+  icon: notes
+  tags:
+    - Text
+    - Colors
+    - Layout
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  # Optional headline
+  headline:
+    enabled: true
+    text: "HEADLINE HEADLINE"
+    size: "L" # L or XL
+    alignment: "left" # left, center, right
+
+  # Optional sub headline
+  sub_headline:
+    enabled: true
+    text: "Optional Sub Headline"
+    alignment: "left" # left, center, right
+
+  # Optional content
+  content:
+    enabled: true
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet."
+    columns: 2 # 1 or 2
+
+  # Layout options
+  layout:
+    disable_bottom_padding: false
+    max_width: "var(--pageContainer)"
+
+  # CTAs or Tags (mutually exclusive)
+  action_type: "none" # none, ctas, tags
+
+  # CTAs (up to 4)
+  ctas:
+    - text: "Button"
+      type: "primary" # primary, secondary, link, anchor, overlay
+      url: "#"
+      target: "_self" # _self, _blank
+      overlay_id: "" # for overlay type
+    - text: "Long Button Label"
+      type: "secondary"
+      url: "#"
+      target: "_self"
+      overlay_id: ""
+
+  # Tags (up to 4)
+  tags:
+    - text: "Tag 01"
+    - text: "Tag 02"
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+  headline:
+    enabled: true
+    text: "HEADLINE HEADLINE"
+    size: "L"
+  sub_headline:
+    enabled: true
+    text: "Optional Sub Headline"
+  content:
+    enabled: true
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquam erat."
+    columns: 2
+  action_type: "ctas"
+  ctas:
+    - text: "Button"
+      type: "primary"
+      url: "#"
+
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+_inputs:
+  headline.size:
+    type: select
+    options:
+      values:
+        - L
+        - XL
+  headline.alignment:
+    type: select
+    options:
+      values:
+        - left
+        - center
+        - right
+  sub_headline.alignment:
+    type: select
+    options:
+      values:
+        - left
+        - center
+        - right
+  content.columns:
+    type: select
+    options:
+      values:
+        - 1
+        - 2
+  action_type:
+    type: select
+    options:
+      values:
+        - value: "none"
+          label: "No actions"
+        - value: "ctas"
+          label: "Call-to-Action buttons"
+        - value: "tags"
+          label: "Tags"
+  ctas:
+    type: array
+    options:
+      max: 4
+  tags:
+    type: array
+    options:
+      max: 4
+  ctas[*].type:
+    type: select
+    options:
+      values:
+        - value: "primary"
+          label: "Primary button"
+        - value: "secondary"
+          label: "Secondary button"
+        - value: "link"
+          label: "Text link"
+        - value: "anchor"
+          label: "Anchor link"
+        - value: "overlay"
+          label: "Open overlay"
+  ctas[*].target:
+    type: select
+    options:
+      values:
+        - value: "_self"
+          label: "Same window"
+        - value: "_blank"
+          label: "New window"

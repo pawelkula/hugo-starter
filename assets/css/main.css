@@ -1,3 +1,4 @@
+@import "./variables.css";
 @import "tailwindcss";
 @import "./_404.css";
 @import "./_markdown.css";

@@ -1,0 +1,136 @@
+/* Text Block Component */
+.txt-module {
+  width: 100%;
+  background-color: var(--dark);
+  color: var(--white);
+}
+
+.txt-module-container {
+  max-width: var(--pageContainer);
+  padding-top: var(--sectionPaddingMobile);
+  padding-bottom: var(--sectionPaddingMobile);
+  margin: 0 auto;
+}
+
+.txt-module-container.no-bottom-padding {
+  padding-bottom: 0;
+}
+
+/* Headlines */
+.txt-module-headline {
+  margin-bottom: 1.5rem;
+}
+
+.txt-module-headline .headline-xl {
+  font-size: var(--FSXL);
+  line-height: 1.1;
+  font-weight: 700;
+  margin: 0;
+}
+
+.txt-module-headline .headline-l {
+  font-size: var(--FSL);
+  line-height: 1.2;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Sub Headlines */
+.txt-module-sub-headline {
+  margin-bottom: 2rem;
+}
+
+.txt-module-sub-headline h3 {
+  font-size: var(--FSM);
+  line-height: 1.3;
+  font-weight: 400;
+  margin: 0;
+}
+
+/* Content */
+.txt-module-content {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  font-size: var(--FSD);
+  line-height: 1.6;
+}
+
+.txt-module-content p {
+  margin: 0 0 1rem 0;
+}
+
+.txt-module-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Actions (CTAs) */
+.txt-module-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Button styles are defined in main.css */
+
+.txt-module-actions .text-link {
+  color: var(--accent_blue);
+  text-decoration: underline;
+  font-size: var(--FSD);
+  transition: color 0.2s ease;
+}
+
+.txt-module-actions .text-link:hover {
+  color: var(--light);
+}
+
+.txt-module-actions .anchor-link {
+  cursor: pointer;
+}
+
+/* Tags */
+.txt-module-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+/* Tags use the global .tag class from main.css */
+
+/* Responsive Design */
+@media only screen and (max-width: 768px) {
+  .txt-module-content {
+    grid-template-columns: 1fr !important;
+  }
+
+  .txt-module-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .txt-module-actions .button,
+  .txt-module-actions .text-link {
+    text-align: center;
+  }
+
+  .txt-module-headline .headline-xl {
+    font-size: var(--FSL);
+  }
+
+  .txt-module-headline .headline-l {
+    font-size: var(--FSM);
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .txt-module-container {
+    padding-top: var(--sectionPadding);
+    padding-bottom: var(--sectionPadding);
+  }
+
+  .txt-module-container.no-bottom-padding {
+    padding-bottom: 0;
+  }
+}

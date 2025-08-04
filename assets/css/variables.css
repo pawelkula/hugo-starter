@@ -1,0 +1,138 @@
+/* Growney Brand Colors & Design System Variables */
+
+:root {
+  /* Base Colors */
+  --light: #fff;
+  --dark: #085263;
+  --dark70: #457e8a;
+  --dark50: #83a9b1;
+  --dark30: #cedde0;
+
+  /* Accent Colors */
+  --accent_blue: #01ebf4;
+  --accent_red: #e80055;
+
+  /* Green Palette */
+  --dark_green: #6f9c75;
+  --light_green: #6f9c75;
+
+  /* Yellow Palette */
+  --dark_yellow: #d3ba00;
+  --light_yellow: #fff7ad;
+
+  /* Coral Palette */
+  --coral: #ff8383;
+  --light_coral: #ffd7d7;
+
+  /* Brand Gradients */
+  --gradient-vertical: linear-gradient(0deg, #1c6170, #63939d 100%);
+  --gradient-diagonal: linear-gradient(240deg, #085363 0%, #367683 100%);
+
+  /* Background Overlays */
+  --overlay-bg: rgba(5, 34, 41, 0.5);
+  --overlay-blur: blur(1rem);
+
+  --border-radius: 1rem;
+
+  /* Layout Variables */
+  --maxWidth: 83.125rem;
+  --pageContainer: min(var(--maxWidth), 100vw - 2rem);
+  --pagePadding: 1rem;
+  --sectionPaddingMobile: 3rem;
+  --sectionPadding: 5rem;
+}
+
+/* Utility Classes for Common Usage */
+.bg-gradient-vertical {
+  background: var(--gradient-vertical);
+}
+
+.bg-gradient-diagonal {
+  background: var(--gradient-diagonal);
+}
+
+.overlay {
+  background: var(--overlay-bg);
+  backdrop-filter: var(--overlay-blur);
+}
+
+/* Color Utility Classes */
+.text-light {
+  color: var(--light);
+}
+.text-dark {
+  color: var(--dark);
+}
+.text-dark70 {
+  color: var(--dark70);
+}
+.text-dark50 {
+  color: var(--dark50);
+}
+.text-dark30 {
+  color: var(--dark30);
+}
+.text-accent-blue {
+  color: var(--accent_blue);
+}
+.text-accent-red {
+  color: var(--accent_red);
+}
+.text-dark-green {
+  color: var(--dark_green);
+}
+.text-light-green {
+  color: var(--light_green);
+}
+.text-dark-yellow {
+  color: var(--dark_yellow);
+}
+.text-light-yellow {
+  color: var(--light_yellow);
+}
+.text-coral {
+  color: var(--coral);
+}
+.text-light-coral {
+  color: var(--light_coral);
+}
+
+.bg-light {
+  background-color: var(--light);
+}
+.bg-dark {
+  background-color: var(--dark);
+}
+.bg-dark70 {
+  background-color: var(--dark70);
+}
+.bg-dark50 {
+  background-color: var(--dark50);
+}
+.bg-dark30 {
+  background-color: var(--dark30);
+}
+.bg-accent-blue {
+  background-color: var(--accent_blue);
+}
+.bg-accent-red {
+  background-color: var(--accent_red);
+}
+.bg-dark-green {
+  background-color: var(--dark_green);
+}
+.bg-light-green {
+  background-color: var(--light_green);
+}
+.bg-dark-yellow {
+  background-color: var(--dark_yellow);
+}
+.bg-light-yellow {
+  background-color: var(--light_yellow);
+}
+.bg-coral {
+  background-color: var(--coral);
+}
+.bg-light-coral {
+  background-color: var(--light_coral);
+}
