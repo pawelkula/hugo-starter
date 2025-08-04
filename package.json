@@ -1,7 +1,7 @@
 {
-  "name": "hugo-bookshop-starter",
+  "name": "growney-website-25",
   "type": "module",
-  "description": "A starter template for Hugo with Bookshop",
+  "description": "Growney Website",
   "scripts": {
     "start": "run-p dev:hugo",
     "build": "run-p build:*",
@@ -10,11 +10,35 @@
     "new-component": "npx @bookshop/init --component",
     "update-bookshop": "npx @bookshop/up@latest",
     "pagefind": "npx -y pagefind --site public --serve",
-    "pagefind-server": "run-s build pagefind"
+    "pagefind-server": "run-s build pagefind",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "format:hugo": "prettier --write \"layouts/**/*.html\" \"component-library/**/*.html\"",
+    "prepare": "husky install",
+    "pre-commit": "lint-staged && npm run test-build",
+    "test-build": "hugo --gc --minify --destination public-test && rm -rf public-test",
+    "test:security": "npm audit --audit-level high && npx audit-ci --config audit-ci.json",
+    "test:links": "npx linkinator public --recurse",
+    "test:html": "npx html-validate public/**/*.html --config .htmlvalidate.json",
+    "validate": "npm run format:check && npm run test-build"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,css,scss,md,yaml,yml}": [
+      "prettier --write"
+    ],
+    "*.html": [
+      "prettier --write --parser=go-template"
+    ],
+    "layouts/**/*.html": [
+      "prettier --write --parser=go-template"
+    ],
+    "component-library/**/*.html": [
+      "prettier --write --parser=go-template"
+    ]
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CloudCannon/hugo-bookshop-starter.git"
+    "url": "git+https://bitbucket.org/growney/growney-website-25.git"
   },
   "author": "CloudCannon",
   "license": "MIT",
@@ -23,10 +47,18 @@
   },
   "homepage": "https://github.com/CloudCannon/hugo-bookshop-starter#readme",
   "devDependencies": {
-    "@bookshop/generate": "3.16.1",
-    "@bookshop/hugo-engine": "3.16.1",
+    "@bookshop/generate": "3.16.3",
+    "@bookshop/hugo-engine": "3.16.3",
     "@tailwindcss/cli": "^4.0.9",
+    "audit-ci": "^6.6.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
     "npm-run-all": "^4.1.5",
+    "prettier": "^3.1.1",
+    "prettier-plugin-go-template": "^0.0.15",
     "tailwindcss": "^4.0.9"
+  },
+  "dependencies": {
+    "@bookshop/browser": "3.16.3"
   }
 }
